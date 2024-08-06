@@ -33,7 +33,7 @@ export TARGET_BRANCH=""
 # enterprise contract
 export POLICY_CONFIGURATION="github.com/enterprise-contract/config//rhtap-jenkins"
 #internal, assumes jenkins is local openshift
-export REKOR_HOST=http://rekor-server.rhtap.svc
+export REKOR_HOST=https://rekor-server-rhtap-tas.apps.rosa.j6ufg-t3htv-ts6.z797.p3.openshiftapps.com
 export IGNORE_REKOR=false
 export INFO=true
 export STRICT=true
