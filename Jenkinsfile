@@ -55,9 +55,6 @@ pipeline {
             }
         }
         stage('scan') {
-            environment {
-                DISABLE_ACS = 'false'
-            }
             steps {
                 script {
                     rhtap.info('acs_deploy_check')
