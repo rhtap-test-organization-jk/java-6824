@@ -24,6 +24,10 @@ pipeline {
         ROX_CENTRAL_ENDPOINT = credentials('ROX_CENTRAL_ENDPOINT')
         GITOPS_AUTH_PASSWORD = credentials('GITOPS_AUTH_PASSWORD')
         QUAY_IO_CREDS = credentials('QUAY_IO_CREDS')
+        DISABLE_ACS = 'false'
+        COSIGN_SECRET_PASSWORD = credentials('COSIGN_SECRET_PASSWORD')
+        COSIGN_SECRET_KEY = credentials('COSIGN_SECRET_KEY')
+        COSIGN_PUBLIC_KEY = credentials('COSIGN_PUBLIC_KEY')
     }
     stages {
         stage('init') {
@@ -43,11 +47,6 @@ pipeline {
             }
         }
         stage('sign-attest') {
-            environment {
-                COSIGN_SECRET_PASSWORD = credentials('COSIGN_SECRET_PASSWORD')
-                COSIGN_SECRET_KEY = credentials('COSIGN_SECRET_KEY')
-                COSIGN_PUBLIC_KEY = credentials('COSIGN_PUBLIC_KEY')
-            }
             steps {
                 script {
                     rhtap.info('cosign_sign_attest')
